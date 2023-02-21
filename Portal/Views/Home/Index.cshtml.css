@@ -1,0 +1,48 @@
+﻿.header-image-index {
+    background: url("../img/homeHeader.jpg") no-repeat center;
+    height: 485px;
+    background-size: cover;
+}
+
+.hero-text {
+    width: 530px;
+    background: rgba(6, 6, 6, 0.7);
+    border-radius: 16px;
+    color: white;
+    position: relative;
+    top: 121px;
+    left: -386px;
+}
+
+.hero-text-header, .header-text-content {
+    padding: 0 30px 0 30px;
+}
+
+.hero-text-header {
+    padding-top: 30px;
+    font-weight: bold;
+}
+
+.hero-text-content {
+    padding: 0 30px 30px 30px;
+}
+
+.crate-filters {
+    background-color: var(--primary-color);
+    padding: 30px 0 30px 0;
+    margin-bottom: 20px;
+}
+
+select {
+    background-color: white;
+    color: var(--text-color);
+    border-radius: 16px;
+    padding: 6px;
+    margin-right: 10px;
+    border-color: white;
+    font-weight: bold;
+}
+
+select:hover {
+    cursor: pointer;
+}

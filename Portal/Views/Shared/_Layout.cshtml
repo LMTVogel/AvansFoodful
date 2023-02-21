@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Avans Foodful</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="https://kit.fontawesome.com/ed03a63e64.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Portal.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img id="navbar-logo" src="~/img/logo.png" alt="Logo Avans Foodful"/>
+                </a>
+                <div class="navbar-links">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item-custom">
+                            <a class="nav-link-custom" asp-area="" asp-controller="Home" asp-action="Index">Pakketten</a>
+                        </li>
+                        
+                        @if (User.IsInRole("Student"))
+                        {
+                            <li class="nav-item-custom">
+                                <a class="nav-link-custom" asp-area="" asp-controller="Account" asp-action="Reservations" asp-route-email="@User.Identity.Name">Reserveringen</a>
+                            </li>
+                        }
+                        else if (User.IsInRole("Employee"))
+                        {
+                            <li class="nav-item-custom">
+                                <a class="nav-link-custom" asp-area="" asp-controller="Canteen" asp-action="PackagesOverview">Pakketten Beheren</a>
+                            </li>
+                        }
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item-custom">
+                                <a class="nav-link-custom" asp-area="" asp-controller="Account" asp-action="Logout">Log uit</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item-custom">
+                                <a class="nav-link-custom" asp-area="" asp-controller="Account" asp-action="Login">Log in</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p>Algemeen</p>
+                    <a class="footer-link" asp-area="" asp-controller="Home" asp-action="Index">Pakketten</a>
+                    <br/>
+                    <a class="footer-link" asp-area="" asp-controller="Home" asp-action="Privacy">Reserveringen</a>
+                    <br/>
+                    <a class="footer-link" asp-area="" asp-controller="Home" asp-action="Privacy">Log in</a>
+                </div>
+                <div class="col">
+                    <p>Socials</p>
+                    <a class="footer-link" href="https://instagram.com">Instagram</a>
+                    <br/>
+                    <a class="footer-link" href="https://facebook.com">Facebook</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

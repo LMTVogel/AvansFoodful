@@ -1,0 +1,208 @@
+:root {
+    --primary-color: #C6002A;
+    --secondary-color: #4B93AC;
+    --text-color: #000000;
+}
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    font-family: "Lato", sans-serif;
+    color: #000000;
+}
+
+h1 {
+    color: var(--primary-color);
+}
+
+a {
+    color: var(--primary-color);
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+.secondary-color-btn {
+    color: white;
+    background-color: var(--secondary-color);
+    text-decoration: none;
+    padding: 15px 25px 15px 25px;
+    border-radius: 16px;
+    font-weight: bold;
+}
+
+.secondary-color-btn:hover {
+    color: white;
+    background-color: var(--secondary-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+#navbar-logo {
+    width: 332px;
+    height: auto;
+}
+
+.navbar {
+    padding: 0;
+    color: var(--text-color);
+    border-bottom: 1px solid black;
+}
+
+.navbar-links {
+    float: right;
+}
+
+.nav-item-custom {
+    font-size: 24px;
+    font-weight: bold;
+    padding-left: 40px;
+}
+
+.nav-link-custom {
+    color: var(--text-color) !important;
+    text-decoration: none;
+}
+
+.nav-link-custom:hover {
+    color: var(--primary-color) !important;
+}
+
+.nav-link-custom:active {
+    color: var(--primary-color) !important;
+}
+
+.danger, .success {
+    width: 424px;
+    text-align: center;
+    margin: auto;
+    border-radius: 16px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.footer-link {
+    color: white;
+}
+
+/* INDEX STYLING */
+.crate-col {
+    margin-bottom: 35px;
+}
+
+.crate-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.crate-link:hover {
+    color: inherit;
+}
+
+/* PACKAGE DETAILS */
+.product-img {
+    border-radius: 16px;
+    border: 1px solid var(--secondary-color);
+    height: 134px;
+    width: 134px;
+}
+
+/* RESERVATION PAGE AND INDEX*/
+.crate {
+    width: 294px;
+    height: 200px;
+    background-color: #F5F5F5;
+    padding: 0;
+    border-radius: 16px;
+    border: 1px solid var(--secondary-color);
+    font-weight: bold;
+}
+
+.crates {
+    margin-bottom: 300px;
+}
+
+.crates > h1 {
+    margin-bottom: 20px;
+}
+
+.crate-title {
+    font-weight: bold;
+    padding-top: 11px;
+}
+
+.crate-price {
+    padding-top: 15px;
+}
+
+/* LOG IN PAGE */
+#login-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    top: 56px;
+}
+
+#login-logo {
+    width: 400px;
+    height: auto;
+}
+
+#login-section > h1 {
+    margin: 52px 0 22px 0;
+}
+
+#login-section > form > input {
+    padding: 7px 14px;
+    width: 280px;
+    border-radius: 16px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+#login-section > form > button {
+    width: 280px;
+    border-radius: 16px;
+    display: block;
+    margin-bottom: 20px;
+    padding: 9px;
+    border: none;
+}

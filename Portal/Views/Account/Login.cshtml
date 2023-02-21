@@ -1,0 +1,42 @@
+﻿@{
+    Layout = "";
+}
+
+@model LoginViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log in - Avans Foodful</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Portal.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+</head>
+<body>
+    <main class="container">
+        <div id="login-section">
+            <img id="login-logo" src="~/img/logo.png"/>
+            <h1>Log in</h1>
+            
+            <div class="text-danger" asp-validation-summary="All"></div>
+
+            <form asp-controller="Account" asp-action="Login" method="post">
+                <div><span asp-validation-for="Email" class="text-danger"></span></div>
+                <input asp-for="Email" type="text" placeholder="E-mailadres"/>
+                <div><span asp-validation-for="Password" class="text-danger"></span></div>
+                <input asp-for="Password" type="password" placeholder="Wachtwoord"/>
+                <button class="secondary-color-btn" type="submit">Inloggen</button>
+            </form>
+            <a asp-controller="Home" asp-action="Index">Klik hier om terug te gaan</a>
+        </div>
+    </main>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

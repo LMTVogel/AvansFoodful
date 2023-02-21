@@ -1,0 +1,52 @@
+﻿@{
+}
+
+@model IEnumerable<Core.Domain.Package>
+<div class="container">
+    <h1 style="margin: 20px 0 15px 0">Pakketten Beheren</h1>
+    <a asp-action="PackagesOverview" class="ms-3">Toon eigen pakketten</a>
+    <a asp-action="PackagesOverview" class="ms-3" asp-route-filter="all">Toon alle pakketten</a>
+    <a style="float: right; margin-top: 25px;" class="secondary-color-btn" asp-action="CreatePackage" asp-controller="Canteen">Pakket Aanmaken</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Naam</th>
+            <th scope="col">Stad</th>
+            <th scope="col">Kantine</th>
+            <th scope="col">Ophalen</th>
+            <th scope="col">Bevat alcohol</th>
+            <th scope="col">Is pakket warm</th>
+            <th scope="col">Gereserveerd</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var package in Model)
+    {
+        <tr>
+            <td>@package.Name</td>
+            <td>@package.Canteen.City</td>
+            <td>@package.Canteen.CanteenName</td>
+            <td>@package.MaxPickupTime</td>
+            <td>@package.ContainsAlcohol</td>
+            <td>@package.IsMealHot</td>
+            @if (package.StudentId != null)
+            {
+                <td>Gereserveerd</td>
+            }
+            else
+            {
+                <td>Geen reservering</td>
+            }
+            @if (package.StudentId == null)
+            {
+                <td><a asp-controller="Canteen" asp-action="UpdatePackage" asp-route-id="@package.Id" style="font-weight: bold">Aanpassen</a></td>
+                <td><a asp-action="DeletePackage" asp-controller="Canteen" asp-route-id="@package.Id" style="font-weight: bold">Verwijderen</a></td>
+            }
+            </tr>
+    }
+    </tbody>
+</table>

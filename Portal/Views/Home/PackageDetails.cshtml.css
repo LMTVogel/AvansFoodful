@@ -1,0 +1,20 @@
+﻿h1 {
+    margin-top: 50px;
+}
+
+/* OTHER STYLING OF BTN CAN BE FOUND IN site.css */
+.product-row {
+    margin-bottom: 20px;
+}
+
+.package-details {
+    height: 600px;
+    margin-bottom: 216px;
+}
+
+.big-product-preview > img {
+    margin: 20px 0 230px 111px;
+    width: 427px;
+    height: 607px;
+    margin-bottom: 374px;
+}

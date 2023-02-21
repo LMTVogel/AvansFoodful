@@ -1,0 +1,52 @@
+﻿@using Core.Domain;
+
+@model Package
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 big-product-preview">
+            <img src="@Model.Products[0].ProductImage"/>
+        </div>
+        <div class="col-6 package-details">
+            <h1 class="package-title">@Model.Name</h1>
+            <p>Stad: @Model.Canteen.City</p>
+            <p>Kantine: @Model.Canteen.CanteenName</p>
+            <p>Ophalen: @Model.MaxPickupTime</p>
+            @if (@Model.IsMealHot)
+            {
+                <p>Maaltijd is warm</p>
+            }
+            else
+            {
+                <p>Maaltijd is NIET warm</p>
+            }
+            @if (@Model.ContainsAlcohol)
+            {
+                <p>Bevat alcohol: Ja</p>
+            }
+            else
+            {
+                <p>Bevat alcohol: Nee</p>
+            }
+            <br/>
+            <p>Mogelijke producten in het pakket (inhoud kan dus anders zijn op moment van ophalen):</p>
+            <div class="row product-row">
+                @foreach (var product in Model.Products)
+                {
+                    <div class="product-item col-3">
+                        <img class="product-img" src="@product.ProductImage"/>
+                        <p>@product.Name</p>
+                    </div>
+                }
+            </div>
+            @if (User.IsInRole("Student"))
+            {
+                <a asp-controller="Home" asp-action="ReservePackage" asp-route-packageId="@Model.Id" class="secondary-color-btn">Reserveer je pakket!</a>
+            }
+            else
+            {
+                <a asp-controller="Account" asp-action="Login" asp-route-id="@Model.Id" class="secondary-color-btn">Log in als student om een pakket te reserveren!</a>
+            }
+            </div>
+    </div>
+</div>

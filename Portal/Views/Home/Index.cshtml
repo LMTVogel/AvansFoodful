@@ -1,0 +1,59 @@
+﻿@using Core.Domain;
+
+@{
+    ViewData["Title"] = "Pakketten";
+}
+
+@model IQueryable<Package>
+
+<div class="header-image-index">
+    <div class="hero-text container">
+        <h5 class="hero-text-header">Hey student!</h5>
+        <p class="hero-text-content">Wil jij meehelpen met het verduurzamen van de kantines van Avans? Dan ben je hier op het juiste adres! Hier staan namelijk voedselpakketten die bijna weggegooid moeten worden. Je kunt deze reserveren en ophalen bij de bijbehorende kantine en afrekenen tegen een gereduceerde prijs van wat je normaal betaald. Hoe chill is dat!</p>
+    </div>
+</div>
+
+<div class="crate-filters">
+
+</div>
+
+
+<div class="text-success success">
+    @ViewBag.AlertSuccess
+</div>
+
+<div class="text-danger danger">
+    @ViewBag.AlertDanger
+</div>
+
+<div class="container crates">
+    <h1 style="margin-top: 20px">@ViewData["Title"]</h1>
+    <div class="row">
+        @foreach (var package in @Model)
+        {
+            <div class="col-3 crate-col">
+                <a class="crate-link" asp-controller="Home" asp-action="PackageDetails" asp-route-id="@package.Id">
+                    <div class="crate row">
+                        <div class="col-10">
+                            <h4 class="crate-title">@package.Name</h4>
+                        </div>
+                        <div class="col-2">
+                            <p class="crate-price">@package.Price,-</p>
+                        </div>
+                        <div class="col-10">
+                            <p>Stad: @package.Canteen.City</p>
+                            <p>Kantine: @package.Canteen.CanteenName</p>
+                            <p>Ophalen: @package.MaxPickupTime</p>
+                        </div>
+                        @if (package.ContainsAlcohol)
+                        {
+                            <div class="col-2">
+                                <p>+18</p>
+                            </div>
+                        }
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+</div>
